@@ -1,0 +1,30 @@
+{
+  "dependencies": [
+
+    {
+      "name": "vincentlaucsb-csv-parser",
+      "version>=": "2.3.0"
+    },
+    {
+      "name": "arrow",
+      "version>=": "19.0.0"
+    },
+    {
+      "name": "mlpack",
+      "version>=": "4.5.1"
+    },
+    {
+      "name": "dlib",
+      "version>=": "19.24.6"
+    },
+    {
+      "name": "log4cplus",
+      "version>=": "2.1.1"
+    },
+    {
+      "name": "taskflow",
+      "version>=": "3.9.0"
+    }
+  ],
+  "builtin-baseline": "5f8c424e267b7360d451df406eeefb3767985b17"
+}does my vcpkg.json file look right?

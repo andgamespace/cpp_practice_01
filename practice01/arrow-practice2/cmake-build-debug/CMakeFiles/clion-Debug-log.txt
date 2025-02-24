@@ -1,0 +1,20 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/anshc/repos/cpp_practice_01/practice01/arrow-practice2 -B /Users/anshc/repos/cpp_practice_01/practice01/arrow-practice2/cmake-build-debug
+Warning: Formula libtorch was renamed to pytorch.
+CMake Error at CMakeLists.txt:49 (find_package):
+  By not providing "FindVCPKG.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "VCPKG", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "VCPKG" with any of
+  the following names:
+
+    VCPKGConfig.cmake
+    vcpkg-config.cmake
+
+  Add the installation prefix of "VCPKG" to CMAKE_PREFIX_PATH or set
+  "VCPKG_DIR" to a directory containing one of the above files.  If "VCPKG"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!
