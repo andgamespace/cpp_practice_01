@@ -1,3 +1,0 @@
-/Users/anshc/repos/cpp_practice_01/practice01/arrow-practice2/cmake-build-debug/CMakeFiles/arrow_practice2.dir
-/Users/anshc/repos/cpp_practice_01/practice01/arrow-practice2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/anshc/repos/cpp_practice_01/practice01/arrow-practice2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
