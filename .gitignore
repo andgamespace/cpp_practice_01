@@ -1,0 +1,93 @@
+# Ignore build directories
+build/
+[Bb]uild/
+out/
+[Oo]ut/
+*/build/
+*/[Bb]uild/
+*/out/
+*/[Oo]ut/
+
+# CMake specific
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# vcpkg specific - Ignore installed packages (manifest mode)
+vcpkg_installed/
+# Only keep the manifest file:
+!vcpkg.json
+# Optionally, keep the vcpkg configuration file if you have one:
+#!vcpkg-configuration.json
+
+# Conan specific - Ignore installed packages (manifest mode)
+#  Assumes you are placing the conan data directory outside of the source/build.
+.conan/  # Ignore the local Conan cache if it's in the project dir.
+
+# Editor/IDE specific (add as needed)
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.opensdf
+*.sdf
+*.user
+*.ipch
+*.aps
+*.ninja
+*.log
+*.DS_Store
+
+# Object files and libraries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+
+# C++ specific
+*.d
+
+# Ignore generated documentation (if you are using Doxygen, etc)
+docs/html/
+docs/latex/
+
+# General temp files
+*~
+*.swp
+*.bak
+*.tmp
+*.temp
+
+# Keep source and CMakeLists.txt files
+# This ensures that source and CMakeLists.txt are tracked.
+# This is important to place *after* more general ignore rules.
+!*/
+!*/src/
+!*/include/
+!*/CMakeLists.txt
+!*.cpp
+!*.h
+!*.hpp
+!*.c
+!*.cc
+!*.cxx
+!*.hh
+!*.inl
+!CMakeLists.txt
+
+# Keep vcpkg manifest and conan recipe
+!conanfile.py
+!conanfile.txt
+
+#Specific file exceptions
+!main.cpp # Example - keep main.cpp, adjust as necessary
