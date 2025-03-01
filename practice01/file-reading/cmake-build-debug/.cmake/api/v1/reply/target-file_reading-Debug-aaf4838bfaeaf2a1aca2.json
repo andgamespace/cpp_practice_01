@@ -1,0 +1,700 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "file_reading"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_executable",
+			"add_executable",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"_find_package",
+			"find_package",
+			"find_dependency",
+			"arrow_find_dependencies",
+			"set_property"
+		],
+		"files" : 
+		[
+			"/Users/anshc/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"CMakeLists.txt",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/ArrowTargets.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/arrowConfig.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Targets.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Config.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/Findlz4Alt.cmake",
+			"/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/DrogonTargets.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/drogonConfig.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorTargets.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorConfig.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindJsoncpp.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindBrotli.cmake",
+			"/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindIconv.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/iconv/vcpkg-cmake-wrapper.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/python/vcpkg-cmake-wrapper.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11NewTools.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11Common.cmake",
+			"/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11Config.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 598,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 7
+			},
+			{
+				"file" : 3,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 125,
+				"parent" : 9
+			},
+			{
+				"file" : 2,
+				"parent" : 10
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 60,
+				"parent" : 11
+			},
+			{
+				"command" : 8,
+				"file" : 3,
+				"line" : 122,
+				"parent" : 9
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 99,
+				"parent" : 13
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 14
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 15
+			},
+			{
+				"file" : 6,
+				"parent" : 16
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 29,
+				"parent" : 17
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 18
+			},
+			{
+				"file" : 5,
+				"parent" : 19
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 26,
+				"parent" : 20
+			},
+			{
+				"file" : 4,
+				"parent" : 21
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 67,
+				"parent" : 22
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 24
+			},
+			{
+				"file" : 9,
+				"parent" : 25
+			},
+			{
+				"command" : 4,
+				"file" : 9,
+				"line" : 79,
+				"parent" : 26
+			},
+			{
+				"file" : 8,
+				"parent" : 27
+			},
+			{
+				"command" : 3,
+				"file" : 8,
+				"line" : 60,
+				"parent" : 28
+			},
+			{
+				"command" : 7,
+				"file" : 9,
+				"line" : 40,
+				"parent" : 26
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 30
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 31
+			},
+			{
+				"file" : 11,
+				"parent" : 32
+			},
+			{
+				"command" : 4,
+				"file" : 11,
+				"line" : 57,
+				"parent" : 33
+			},
+			{
+				"file" : 10,
+				"parent" : 34
+			},
+			{
+				"command" : 3,
+				"file" : 10,
+				"line" : 60,
+				"parent" : 35
+			},
+			{
+				"command" : 7,
+				"file" : 9,
+				"line" : 39,
+				"parent" : 26
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 37
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 38
+			},
+			{
+				"file" : 12,
+				"parent" : 39
+			},
+			{
+				"command" : 3,
+				"file" : 12,
+				"line" : 67,
+				"parent" : 40
+			},
+			{
+				"command" : 7,
+				"file" : 9,
+				"line" : 55,
+				"parent" : 26
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 42
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 43
+			},
+			{
+				"file" : 13,
+				"parent" : 44
+			},
+			{
+				"command" : 3,
+				"file" : 13,
+				"line" : 45,
+				"parent" : 45
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 859,
+				"parent" : 47
+			},
+			{
+				"file" : 19,
+				"parent" : 48
+			},
+			{
+				"command" : 4,
+				"file" : 19,
+				"line" : 250,
+				"parent" : 49
+			},
+			{
+				"file" : 18,
+				"parent" : 50
+			},
+			{
+				"command" : 4,
+				"file" : 18,
+				"line" : 223,
+				"parent" : 51
+			},
+			{
+				"file" : 17,
+				"parent" : 52
+			},
+			{
+				"command" : 6,
+				"file" : 17,
+				"line" : 58,
+				"parent" : 53
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 813,
+				"parent" : 54
+			},
+			{
+				"file" : 16,
+				"parent" : 55
+			},
+			{
+				"command" : 6,
+				"file" : 16,
+				"line" : 91,
+				"parent" : 56
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 813,
+				"parent" : 57
+			},
+			{
+				"file" : 15,
+				"parent" : 58
+			},
+			{
+				"command" : 5,
+				"file" : 15,
+				"line" : 3,
+				"parent" : 59
+			},
+			{
+				"file" : 14,
+				"parent" : 60
+			},
+			{
+				"command" : 9,
+				"file" : 14,
+				"line" : 183,
+				"parent" : 61
+			},
+			{
+				"command" : 3,
+				"file" : 15,
+				"line" : 11,
+				"parent" : 59
+			},
+			{
+				"command" : 9,
+				"file" : 16,
+				"line" : 116,
+				"parent" : 56
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -fcolor-diagnostics"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "Py_DEBUG"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/vincentlaucsb-csv-parser"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/python3.11"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					4,
+					3,
+					3,
+					3
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"id" : "file_reading::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-Xlinker",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-undefined",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-Xlinker",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "dynamic_lookup",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libarrow.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libvincentlaucsb-csv-parser-csv.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libdrogon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlienc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlidec.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlicommon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbz2d.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 23,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/liblz4d.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libsnappy.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libzstd.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libz.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 29,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libtrantor.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libssl.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libcrypto.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libcares.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "-lresolv",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 29,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 41,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libjsoncpp.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 46,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlidec.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 46,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlienc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 46,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlicommon.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 62,
+				"fragment" : "/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libiconv.tbd",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 63,
+				"fragment" : "/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libcharset.tbd",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 64,
+				"fragment" : "/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libintl.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "file_reading",
+	"nameOnDisk" : "file_reading",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4,
+				5,
+				7
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				6
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/DataLoader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/DataLoader.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/mio/mmap.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/mio/page.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/mio/shared_mmap.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/mio/detail/mmap.ipp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 5,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/include/mio/detail/string_util.hpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

@@ -21,7 +21,9 @@ find_package(drogon CONFIG REQUIRED)                               # Drogon HTTP
 find_package(pybind11 CONFIG REQUIRED)                             # Pybind11
 
 # Set source files
-add_executable(file_reading src/main.cpp)
+add_executable(file_reading src/main.cpp
+        src/DataLoader.cpp
+        src/DataLoader.h)
 
 # Apache Arrow library: Use the static or shared version of the library
 if (DEFINED ARROW_BUILD_STATIC AND ARROW_BUILD_STATIC)

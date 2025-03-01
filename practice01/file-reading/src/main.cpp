@@ -1,94 +1,78 @@
 #include <iostream>
-#include <csv.hpp> //include the library
+#include <vector>
 #include <string>
-#include <memory>
-#include <cstdlib>
+#include "DataLoader.h"
 #include <arrow/api.h>
+#include <iomanip>
+
+// Function to print the first few rows of the Arrow Table.
+void printHead(const std::shared_ptr<arrow::Table>& table, int numRows = 5) {
+    auto dateArray   = std::static_pointer_cast<arrow::StringArray>(table->column(0)->chunk(0));
+    auto openArray   = std::static_pointer_cast<arrow::DoubleArray>(table->column(1)->chunk(0));
+    auto highArray   = std::static_pointer_cast<arrow::DoubleArray>(table->column(2)->chunk(0));
+    auto lowArray    = std::static_pointer_cast<arrow::DoubleArray>(table->column(3)->chunk(0));
+    auto closeArray  = std::static_pointer_cast<arrow::DoubleArray>(table->column(4)->chunk(0));
+    auto volumeArray = std::static_pointer_cast<arrow::DoubleArray>(table->column(5)->chunk(0));
+
+    int rows = static_cast<int>(table->num_rows());
+    rows = std::min(rows, numRows);
+
+    std::cout << std::left << std::setw(20) << "Datetime"
+              << std::right << std::setw(10) << "Open"
+              << std::setw(10) << "High"
+              << std::setw(10) << "Low"
+              << std::setw(10) << "Close"
+              << std::setw(12) << "Volume" << std::endl;
+    std::cout << std::string(72, '-') << std::endl;
+
+    for (int i = 0; i < rows; i++) {
+        std::cout << std::left << std::setw(20) << dateArray->GetString(i)
+                  << std::right << std::setw(10) << openArray->Value(i)
+                  << std::setw(10) << highArray->Value(i)
+                  << std::setw(10) << lowArray->Value(i)
+                  << std::setw(10) << closeArray->Value(i)
+                  << std::setw(12) << volumeArray->Value(i) << std::endl;
+    }
+    std::cout << std::endl;
+}
 
 int main() {
-    // Path to your CSV file. Adjust the filename/path as needed.
-    std::string filepath = "/Users/anshc/repos/cpp_practice_01/practice01/file-reading/src/stock_data/time-series-AAPL-5min(1).csv";
+    // Update the base directory to point correctly relative to the build directory.
+    // When running from "cmake-build-debug", "../src/stock_data/" points to the CSV folder.
+    std::string baseDir = "../src/stock_data/";
 
-    // Create a CSVReader using vincentlaucsb-csv-parser.
-    // It will automatically parse the CSV rows.
-    csv::CSVReader reader(filepath);
+    // List of tickers to process.
+    std::vector<std::string> tickers = {"AAPL", "MSFT", "NVDA", "AMD"};
 
-    // Create Arrow builders for each column.
-    // In this example, we assume:
-    //   Column 0: Date (string)
-    //   Column 1: Open (double)
-    //   Column 2: High (double)
-    //   Column 3: Low (double)
-    //   Column 4: Close (double)
-    //   Column 5: Volume (double)
-    arrow::StringBuilder date_builder;
-    arrow::DoubleBuilder open_builder;
-    arrow::DoubleBuilder high_builder;
-    arrow::DoubleBuilder low_builder;
-    arrow::DoubleBuilder close_builder;
-    arrow::DoubleBuilder volume_builder;
+    // Instantiate the DataLoader.
+    DataLoader loader;
 
-    // Iterate over CSV rows.
-    // If your CSV has a header row that you want to skip, make sure to configure your CSVReader accordingly.
-    for (csv::CSVRow& row : reader) {
-        // Use static typing when reading the fields.
-        const std::string date    = row[0].get<>();
-        const double open_val     = std::stod(row[1].get<>());
-        const double high_val     = std::stod(row[2].get<>());
-        const double low_val      = std::stod(row[3].get<>());
-        const double close_val    = std::stod(row[4].get<>());
-        const double volume_val   = std::stod(row[5].get<>());
+    // For each ticker, create a vector of file paths. Files are assumed ordered from most recent to oldest.
+    for (const auto& ticker : tickers) {
+        std::vector<std::string> filePaths;
+        filePaths.push_back(baseDir + "time-series-" + ticker + "-5min.csv");
+        filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(1).csv");
+        filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(2).csv");
 
-        // Append values to the respective builders.
-        if (!date_builder.Append(date).ok() ||
-            !open_builder.Append(open_val).ok() ||
-            !high_builder.Append(high_val).ok() ||
-            !low_builder.Append(low_val).ok() ||
-            !close_builder.Append(close_val).ok() ||
-            !volume_builder.Append(volume_val).ok()) {
-            std::cerr << "Error appending to one of the Arrow builders." << std::endl;
-            return EXIT_FAILURE;
+        std::cout << "=============================" << std::endl;
+        std::cout << "Processing ticker: " << ticker << std::endl;
+        std::cout << "=============================" << std::endl;
+
+        if (!loader.loadTickerData(ticker, filePaths)) {
+            std::cerr << "Failed to load data for ticker: " << ticker << std::endl;
+            continue;
         }
+
+        // Retrieve and print a preview of the Arrow table.
+        auto table = loader.getTickerData(ticker);
+        if (table) {
+            std::cout << "Schema:\n" << table->schema()->ToString() << std::endl;
+            std::cout << "Number of rows: " << table->num_rows() << std::endl;
+            std::cout << "Showing first few rows:" << std::endl;
+            printHead(table, 5);
+        }
+        std::cout << std::endl;
     }
 
-    // Finalize each Arrow array.
-    std::shared_ptr<arrow::Array> date_array;
-    std::shared_ptr<arrow::Array> open_array;
-    std::shared_ptr<arrow::Array> high_array;
-    std::shared_ptr<arrow::Array> low_array;
-    std::shared_ptr<arrow::Array> close_array;
-    std::shared_ptr<arrow::Array> volume_array;
-
-    if (!date_builder.Finish(&date_array).ok() ||
-        !open_builder.Finish(&open_array).ok() ||
-        !high_builder.Finish(&high_array).ok() ||
-        !low_builder.Finish(&low_array).ok() ||
-        !close_builder.Finish(&close_array).ok() ||
-        !volume_builder.Finish(&volume_array).ok()) {
-        std::cerr << "Error finishing one of the Arrow arrays." << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    // Create an Arrow schema that describes your dataframe.
-    std::shared_ptr<arrow::Schema> schema = arrow::schema({
-        arrow::field("Date", arrow::utf8()),
-        arrow::field("Open", arrow::float64()),
-        arrow::field("High", arrow::float64()),
-        arrow::field("Low", arrow::float64()),
-        arrow::field("Close", arrow::float64()),
-        arrow::field("Volume", arrow::float64())
-    });
-
-    // Create an Arrow Table from the arrays.
-    std::shared_ptr<arrow::Table> table = arrow::Table::Make(
-        schema, {date_array, open_array, high_array, low_array, close_array, volume_array});
-
-    // For demonstration, print the schema and the number of rows.
-    std::cout << "CSV file has been successfully read into an Arrow Table." << std::endl;
-    std::cout << "Schema:\n" << table->schema()->ToString() << std::endl;
-    std::cout << "Number of rows: " << table->num_rows() << std::endl;
-
-    // Arrow handles memory management with shared pointers and memory pools.
-    // When these objects go out of scope at the end of 'main', memory is safely freed.
-    return EXIT_SUCCESS;
+    return 0;
 }
