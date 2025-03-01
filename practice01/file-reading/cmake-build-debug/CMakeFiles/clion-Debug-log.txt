@@ -6,6 +6,6 @@
 -- jsoncpp version:1.9.6
 -- Found UUID: 
 -- Found pybind11: /Users/anshc/vcpkg/installed/arm64-osx/include (found version "2.13.6")
--- Configuring done (2.8s)
+-- Configuring done (2.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug

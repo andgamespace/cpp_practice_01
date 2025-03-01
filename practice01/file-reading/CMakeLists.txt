@@ -23,7 +23,9 @@ find_package(pybind11 CONFIG REQUIRED)                             # Pybind11
 # Set source files
 add_executable(file_reading src/main.cpp
         src/DataLoader.cpp
-        src/DataLoader.h)
+        src/DataLoader.h
+        src/FrontendController.cpp
+        src/FrontendController.h)
 
 # Apache Arrow library: Use the static or shared version of the library
 if (DEFINED ARROW_BUILD_STATIC AND ARROW_BUILD_STATIC)
