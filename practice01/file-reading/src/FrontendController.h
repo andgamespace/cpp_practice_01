@@ -11,7 +11,7 @@ using namespace drogon;
 /**
  * @brief FrontendController is responsible for sending time series and portfolio metrics data
  *        to the React frontend. It abstracts functionality for live metrics, time series,
- *        win/loss ratio, and profit and loss.
+ *        win/loss ratio, profit and loss, and deep learning metrics.
  */
 class FrontendController : public drogon::HttpController<FrontendController>
 {
@@ -52,6 +52,22 @@ public:
     void getProfitLoss(const HttpRequestPtr &req,
                        std::function<void (const HttpResponsePtr &)> &&callback);
 
+    /**
+     * @brief Get supervised deep learning metrics.
+     * @param req The incoming HTTP request.
+     * @param callback Function to send the HTTP response.
+     */
+    void getSupervisedLearningMetrics(const HttpRequestPtr &req,
+                                      std::function<void (const HttpResponsePtr &)> &&callback);
+
+    /**
+     * @brief Get reinforcement learning metrics.
+     * @param req The incoming HTTP request.
+     * @param callback Function to send the HTTP response.
+     */
+    void getReinforcementLearningMetrics(const HttpRequestPtr &req,
+                                         std::function<void (const HttpResponsePtr &)> &&callback);
+
     METHOD_LIST_BEGIN
         // GET /time-series/{ticker} returns time series data for the ticker.
         ADD_METHOD_TO(FrontendController::getTimeSeriesData, "/time-series/{1}", Get);
@@ -61,11 +77,18 @@ public:
         ADD_METHOD_TO(FrontendController::getWinLossRatio, "/portfolio/winloss", Get);
         // GET /portfolio/pnl returns profit and loss data.
         ADD_METHOD_TO(FrontendController::getProfitLoss, "/portfolio/pnl", Get);
+        // GET /portfolio/supervised returns supervised learning metrics.
+        ADD_METHOD_TO(FrontendController::getSupervisedLearningMetrics, "/portfolio/supervised", Get);
+        // GET /portfolio/rl returns reinforcement learning metrics.
+        ADD_METHOD_TO(FrontendController::getReinforcementLearningMetrics, "/portfolio/rl", Get);
     METHOD_LIST_END
 
 private:
     // Instance of DataLoader used to load time series CSV data.
     DataLoader timeSeriesLoader_;
+
+    // Debug flag.
+    bool debug_ = true;
 
     // Helper functions that provide (mock) portfolio data.
     Json::Value getMockPortfolioMetrics();

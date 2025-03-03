@@ -1,14 +1,15 @@
-#include "frontendController.h"
+#include "FrontendController.h"
 #include <drogon/drogon.h>
 #include <json/json.h>
 #include <arrow/api.h>
 #include <algorithm>
 #include <sstream>
+#include <spdlog/spdlog.h>
 
 // Constructor: Loads time series data for a predefined set of tickers.
-// In production, you might load data dynamically or update it in real time.
-FrontendController::FrontendController()
+FrontendController::FrontendController() : debug_(true)
 {
+    spdlog::info("Initializing FrontendController");
     // List of tickers to load.
     std::vector<std::string> tickers = {"AAPL", "MSFT", "NVDA", "AMD"};
     // Adjust the base directory as needed.
@@ -20,7 +21,11 @@ FrontendController::FrontendController()
         filePaths.push_back(baseDir + "time-series-" + ticker + "-5min.csv");
         filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(1).csv");
         filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(2).csv");
-        timeSeriesLoader_.loadTickerData(ticker, filePaths);
+        if (!timeSeriesLoader_.loadTickerData(ticker, filePaths)) {
+            spdlog::error("Failed to load data for ticker: {}", ticker);
+        } else {
+            spdlog::info("Loaded data for ticker: {}", ticker);
+        }
     }
 }
 
@@ -60,16 +65,19 @@ void FrontendController::getTimeSeriesData(const HttpRequestPtr &req,
                                            std::function<void (const HttpResponsePtr &)> &&callback,
                                            const std::string &ticker)
 {
+    spdlog::info("Request received for time series data for ticker: {}", ticker);
     auto table = timeSeriesLoader_.getTickerData(ticker);
     Json::Value responseJson;
     if (!table)
     {
         responseJson["error"] = "Time series data not found for ticker: " + ticker;
+        spdlog::error("Time series data not found for ticker: {}", ticker);
     }
     else
     {
         responseJson["ticker"] = ticker;
         responseJson["data"] = arrowTableToJson(table);
+        spdlog::info("Sending time series data for ticker: {}", ticker);
     }
     auto resp = HttpResponse::newHttpJsonResponse(responseJson);
     callback(resp);
@@ -77,10 +85,10 @@ void FrontendController::getTimeSeriesData(const HttpRequestPtr &req,
 
 // GET /portfolio/live
 // Returns live portfolio metrics.
-// In a real system, these metrics would be updated in real time.
 void FrontendController::getLivePortfolioMetrics(const HttpRequestPtr &req,
                                                  std::function<void (const HttpResponsePtr &)> &&callback)
 {
+    spdlog::info("Request received for live portfolio metrics");
     Json::Value responseJson;
     responseJson["portfolio"] = getMockPortfolioMetrics();
     auto resp = HttpResponse::newHttpJsonResponse(responseJson);
@@ -92,6 +100,7 @@ void FrontendController::getLivePortfolioMetrics(const HttpRequestPtr &req,
 void FrontendController::getWinLossRatio(const HttpRequestPtr &req,
                                          std::function<void (const HttpResponsePtr &)> &&callback)
 {
+    spdlog::info("Request received for win/loss ratio");
     Json::Value responseJson;
     responseJson["winLossRatio"] = getMockWinLossRatio();
     auto resp = HttpResponse::newHttpJsonResponse(responseJson);
@@ -103,8 +112,39 @@ void FrontendController::getWinLossRatio(const HttpRequestPtr &req,
 void FrontendController::getProfitLoss(const HttpRequestPtr &req,
                                        std::function<void (const HttpResponsePtr &)> &&callback)
 {
+    spdlog::info("Request received for profit and loss metrics");
     Json::Value responseJson;
     responseJson["profitLoss"] = getMockProfitLoss();
+    auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+    callback(resp);
+}
+
+// GET /portfolio/supervised
+// Returns supervised deep learning metrics.
+void FrontendController::getSupervisedLearningMetrics(const HttpRequestPtr &req,
+                                                       std::function<void (const HttpResponsePtr &)> &&callback)
+{
+    spdlog::info("Request received for supervised learning metrics");
+    Json::Value responseJson;
+    // Mock supervised learning metrics.
+    responseJson["accuracy"] = 0.92;
+    responseJson["loss"] = 0.08;
+    responseJson["epochs"] = 50;
+    auto resp = HttpResponse::newHttpJsonResponse(responseJson);
+    callback(resp);
+}
+
+// GET /portfolio/rl
+// Returns reinforcement learning metrics.
+void FrontendController::getReinforcementLearningMetrics(const HttpRequestPtr &req,
+                                                         std::function<void (const HttpResponsePtr &)> &&callback)
+{
+    spdlog::info("Request received for reinforcement learning metrics");
+    Json::Value responseJson;
+    // Mock reinforcement learning metrics.
+    responseJson["episodes"] = 100;
+    responseJson["totalReward"] = 2500;
+    responseJson["averageReward"] = 25;
     auto resp = HttpResponse::newHttpJsonResponse(responseJson);
     callback(resp);
 }

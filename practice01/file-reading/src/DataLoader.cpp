@@ -1,11 +1,4 @@
-//
-// Improved DataLoader.cpp
-// Created by anshc on 2/27/25.
-// Updated for robustness and better error handling.
-//
-
 #include "DataLoader.h"
-#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <cmath>
@@ -14,6 +7,7 @@
 #include <algorithm>
 #include <filesystem>
 #include <csv.hpp> // vincentlaucsb/csv-parser
+#include <spdlog/spdlog.h>
 
 namespace fs = std::filesystem;
 
@@ -43,7 +37,6 @@ void DataLoader::imputeMissing(std::vector<double>& data, int window) {
 }
 
 // Helper: sort merged data by datetime.
-// Assumes all vectors have the same size.
 void DataLoader::sortData(std::vector<std::string>& datetimes,
                           std::vector<double>& opens,
                           std::vector<double>& highs,
@@ -82,6 +75,8 @@ void DataLoader::sortData(std::vector<std::string>& datetimes,
 
 // Loads CSV files for a given ticker symbol and creates an Arrow Table.
 bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std::string>& filePaths) {
+    spdlog::info("Loading data for ticker: {}", ticker);
+
     // Vectors to store merged data from all files.
     std::vector<std::string> datetimes;
     std::vector<double> opens, highs, lows, closes, volumes;
@@ -89,84 +84,80 @@ bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std
     int filesProcessed = 0;
 
     for (const auto& filePath : filePaths) {
-        // Check if file exists before attempting to load.
         if (!fs::exists(filePath)) {
-            std::cerr << "!!!!! File not found: " << filePath << std::endl;
+            spdlog::error("File not found: {}", filePath);
             continue;
         }
 
         try {
-            // Create a CSVReader with semicolon delimiter.
             csv::CSVReader reader(filePath, csv::CSVFormat().delimiter(';').variable_columns(true));
             bool headerSkipped = false;
+            std::vector<csv::CSVRow> rows;
             for (csv::CSVRow& row : reader) {
-                // Skip header row if present.
                 if (!headerSkipped) {
                     headerSkipped = true;
                     continue;
                 }
-                // Expecting exactly 6 columns.
-                if (row.size() < 6) {
-                    std::cerr << "Warning: Incomplete row in file: " << filePath << std::endl;
-                    continue;
-                }
+                rows.push_back(row);
+            }
 
-                std::string datetime = row[0].get<>();
+            // Process rows sequentially using a simple for loop.
+            for (const auto& row : rows) {
+                std::string datetime = row[0].template get<std::string>();
                 double openVal = std::numeric_limits<double>::quiet_NaN();
                 double highVal = std::numeric_limits<double>::quiet_NaN();
                 double lowVal  = std::numeric_limits<double>::quiet_NaN();
                 double closeVal= std::numeric_limits<double>::quiet_NaN();
                 double volumeVal = std::numeric_limits<double>::quiet_NaN();
 
-                // Parse numeric fields; if parsing fails, log error and skip this row.
                 try {
-                    openVal = std::stod(row[1].get<>());
+                    openVal = std::stod(row[1].template get<std::string>());
                 } catch (const std::exception& e) {
-                    std::cerr << "Error parsing open value in file: " << filePath << " (" << e.what() << ")" << std::endl;
+                    spdlog::error("Error parsing open value in file {}: {}", filePath, e.what());
+                    continue; // skip this row
+                }
+                try {
+                    highVal = std::stod(row[2].template get<std::string>());
+                } catch (const std::exception& e) {
+                    spdlog::error("Error parsing high value in file {}: {}", filePath, e.what());
                     continue;
                 }
                 try {
-                    highVal = std::stod(row[2].get<>());
+                    lowVal = std::stod(row[3].template get<std::string>());
                 } catch (const std::exception& e) {
-                    std::cerr << "Error parsing high value in file: " << filePath << " (" << e.what() << ")" << std::endl;
+                    spdlog::error("Error parsing low value in file {}: {}", filePath, e.what());
                     continue;
                 }
                 try {
-                    lowVal = std::stod(row[3].get<>());
+                    closeVal = std::stod(row[4].template get<std::string>());
                 } catch (const std::exception& e) {
-                    std::cerr << "Error parsing low value in file: " << filePath << " (" << e.what() << ")" << std::endl;
+                    spdlog::error("Error parsing close value in file {}: {}", filePath, e.what());
                     continue;
                 }
                 try {
-                    closeVal = std::stod(row[4].get<>());
+                    volumeVal = std::stod(row[5].template get<std::string>());
                 } catch (const std::exception& e) {
-                    std::cerr << "Error parsing close value in file: " << filePath << " (" << e.what() << ")" << std::endl;
-                    continue;
-                }
-                try {
-                    volumeVal = std::stod(row[5].get<>());
-                } catch (const std::exception& e) {
-                    std::cerr << "Error parsing volume value in file: " << filePath << " (" << e.what() << ")" << std::endl;
+                    spdlog::error("Error parsing volume value in file {}: {}", filePath, e.what());
                     continue;
                 }
 
-                // Append parsed data.
-                datetimes.push_back(datetime);
-                opens.push_back(openVal);
-                highs.push_back(highVal);
-                lows.push_back(lowVal);
-                closes.push_back(closeVal);
-                volumes.push_back(volumeVal);
+                // Append parsed values to vectors.
+                datetimes.emplace_back(datetime);
+                opens.emplace_back(openVal);
+                highs.emplace_back(highVal);
+                lows.emplace_back(lowVal);
+                closes.emplace_back(closeVal);
+                volumes.emplace_back(volumeVal);
             }
             ++filesProcessed;
         } catch (const std::exception& e) {
-            std::cerr << "Failed to process file: " << filePath << " (" << e.what() << ")" << std::endl;
+            spdlog::error("Failed to process file {}: {}", filePath, e.what());
             continue;
         }
     }
 
     if (filesProcessed == 0 || datetimes.empty()) {
-        std::cerr << "No valid data loaded for ticker: " << ticker << std::endl;
+        spdlog::error("No valid data loaded for ticker: {}", ticker);
         return false;
     }
 
@@ -190,7 +181,7 @@ bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std
 
     for (size_t i = 0; i < datetimes.size(); ++i) {
         if (!dateBuilder.Append(datetimes[i]).ok()) {
-            std::cerr << "Error appending datetime at index " << i << std::endl;
+            spdlog::error("Error appending datetime at index {}", i);
             return false;
         }
         if (!openBuilder.Append(opens[i]).ok() ||
@@ -198,7 +189,7 @@ bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std
             !lowBuilder.Append(lows[i]).ok() ||
             !closeBuilder.Append(closes[i]).ok() ||
             !volumeBuilder.Append(volumes[i]).ok()) {
-            std::cerr << "Error appending numeric data at index " << i << std::endl;
+            spdlog::error("Error appending numeric data at index {}", i);
             return false;
         }
     }
@@ -211,7 +202,7 @@ bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std
         !lowBuilder.Finish(&lowArray).ok() ||
         !closeBuilder.Finish(&closeArray).ok() ||
         !volumeBuilder.Finish(&volumeArray).ok()) {
-        std::cerr << "Error finalizing Arrow arrays for ticker: " << ticker << std::endl;
+        spdlog::error("Error finalizing Arrow arrays for ticker: {}", ticker);
         return false;
     }
 
@@ -228,8 +219,8 @@ bool DataLoader::loadTickerData(const std::string& ticker, const std::vector<std
     std::shared_ptr<arrow::Table> table = arrow::Table::Make(
         schema, {dateArray, openArray, highArray, lowArray, closeArray, volumeArray});
 
-    // Store the table in the mapping.
     tickerData_[ticker] = table;
+    spdlog::info("Successfully loaded {} rows for ticker {}", table->num_rows(), ticker);
     return true;
 }
 

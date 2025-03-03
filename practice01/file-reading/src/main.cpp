@@ -4,6 +4,7 @@
 #include "DataLoader.h"
 #include <arrow/api.h>
 #include <iomanip>
+#include <spdlog/spdlog.h>
 
 // Function to print the first few rows of the Arrow Table.
 void printHead(const std::shared_ptr<arrow::Table>& table, int numRows = 5) {
@@ -37,8 +38,8 @@ void printHead(const std::shared_ptr<arrow::Table>& table, int numRows = 5) {
 }
 
 int main() {
+    spdlog::info("Starting main test for DataLoader");
     // Update the base directory to point correctly relative to the build directory.
-    // When running from "cmake-build-debug", "../src/stock_data/" points to the CSV folder.
     std::string baseDir = "../src/stock_data/";
 
     // List of tickers to process.

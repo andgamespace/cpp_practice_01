@@ -1,5 +1,6 @@
 # ninja log v6
-14	1102	1740796463167503413	CMakeFiles/file_reading.dir/src/main.cpp.o	cb509610c5524148
-14	1442	1740796338628559426	CMakeFiles/file_reading.dir/src/DataLoader.cpp.o	a60aa389c66f1bd7
-1102	1763	1740796464255921952	file_reading	4e20da754279b907
-2	1708	1740797644533344617	build.ninja	d20583f171b7c287
+21	1226	1740863764196007924	CMakeFiles/file_reading.dir/src/main.cpp.o	d7a083c53b0f601c
+21	1612	1740863764196287496	CMakeFiles/file_reading.dir/src/DataLoader.cpp.o	a1f043841511ae82
+21	2900	1740863764196417741	CMakeFiles/file_reading.dir/src/FrontendController.cpp.o	4ef6fa5d476f8d85
+2900	3585	1740863767075511821	file_reading	e9e825adf2ccc6b4
+12	1461	1740957360427567597	build.ninja	d20583f171b7c287

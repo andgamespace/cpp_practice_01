@@ -19,6 +19,7 @@ find_package(arrow CONFIG REQUIRED)                                # Apache Arro
 find_package(unofficial-vincentlaucsb-csv-parser CONFIG REQUIRED)  # CSV Parser
 find_package(drogon CONFIG REQUIRED)                               # Drogon HTTP framework
 find_package(pybind11 CONFIG REQUIRED)                             # Pybind11
+find_package(spdlog CONFIG REQUIRED)                               # spdlog logging library
 
 # Set source files
 add_executable(file_reading src/main.cpp
@@ -42,3 +43,6 @@ target_link_libraries(file_reading PRIVATE Drogon::Drogon)
 
 # Pybind11
 target_link_libraries(file_reading PRIVATE pybind11::module)
+
+# spdlog logging library
+target_link_libraries(file_reading PRIVATE spdlog::spdlog)

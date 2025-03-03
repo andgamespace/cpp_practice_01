@@ -1,8 +1,3 @@
-//
-// Improved DataLoader.hpp
-// Created by anshc on 2/27/25.
-// Updated for robustness and extensibility for a vectorized gym environment.
-//
 #ifndef DATALOADER_H
 #define DATALOADER_H
 #pragma once
@@ -15,7 +10,7 @@
 
 class DataLoader {
 public:
-    DataLoader() = default;
+    DataLoader() : debug_(true) {}
     ~DataLoader() = default;
 
     // Loads a ticker's CSV files (ordered from most recent to oldest) and builds an Arrow table.
@@ -28,6 +23,9 @@ public:
 private:
     // Internal mapping from ticker symbols to their corresponding Arrow tables.
     std::unordered_map<std::string, std::shared_ptr<arrow::Table>> tickerData_;
+
+    // Debug flag.
+    bool debug_;
 
     // Helper function to impute missing values in a numeric column.
     // Missing values (NaN) are replaced with the average of up to 'window' preceding and 'window' succeeding valid entries.
