@@ -1,0 +1,1083 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.31.6/CMakeSystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/scripts/buildsystems/vcpkg.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.31.6/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Linker/AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/arrowConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/arrowConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/ArrowOptions.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/FindSnappyAlt.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/snappy/SnappyConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/snappy/SnappyConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/snappy/SnappyTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/snappy/SnappyTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/snappy/SnappyTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/FindBrotliAlt.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-brotli/unofficial-brotli-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-brotli/unofficial-brotli-config-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-brotli/unofficial-brotli-config-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/FindOpenSSLAlt.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/openssl/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zlib/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/Findlz4Alt.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/lz4/lz4Targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/FindzstdAlt.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zstd/zstdConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zstd/zstdConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zstd/zstdTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zstd/zstdTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zstd/zstdTargets-release.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindBZip2.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/ArrowTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/ArrowTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/arrow/ArrowTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-vincentlaucsb-csv-parser/unofficial-vincentlaucsb-csv-parser-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/mio/mio-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/mio/mio-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/mio/mio-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/string-view-lite/string-view-lite-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/string-view-lite/string-view-lite-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/string-view-lite/string-view-lite-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-vincentlaucsb-csv-parser/unofficial-vincentlaucsb-csv-parser-config-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/unofficial-vincentlaucsb-csv-parser/unofficial-vincentlaucsb-csv-parser-config-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/drogonConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/drogonConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindJsoncpp.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/openssl/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindOpenSSL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/c-ares/c-ares-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/trantor/TrantorTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindUUID.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/zlib/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindBrotli.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindFilesystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFileCXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCXXSourceRuns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceRuns.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/FindFilesystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/DrogonTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/DrogonTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/DrogonTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/DrogonUtilities.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/drogon/ParseAndAddDrogonTests.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11Config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11Targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11Common.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/pybind11/pybind11NewTools.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/python/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPython.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPython/Support.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/iconv/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindIconv.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/intl/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindIntl.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/iconv/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindIconv.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/spdlog/spdlogConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/spdlog/spdlogConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/fmt/fmt-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/fmt/fmt-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/fmt/fmt-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/fmt/fmt-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/fmt/fmt-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/spdlog/spdlogConfigTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/spdlog/spdlogConfigTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/spdlog/spdlogConfigTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/taskflow/TaskflowConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/taskflow/TaskflowConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Users/anshc/vcpkg/installed/arm64-osx/share/taskflow/TaskflowTargets.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build",
+		"source" : "/Users/anshc/repos/cpp_practice_01/practice01/file-reading"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}

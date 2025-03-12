@@ -1,0 +1,45 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/anshc/repos/cpp_practice_01/practice01/file-reading -B /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug
+-- The C compiler identification is AppleClang 16.0.0.16000026
+-- The CXX compiler identification is AppleClang 16.0.0.16000026
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found SnappyAlt: /Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libsnappy.a
+-- Found OpenSSL: /Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libcrypto.a (found version "3.4.1")
+-- Found ZLIB: optimized;/Users/anshc/vcpkg/installed/arm64-osx/lib/libz.a;debug;/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libz.a (found version "1.3.1")
+-- Found BZip2: optimized;/Users/anshc/vcpkg/installed/arm64-osx/lib/libbz2.a;debug;/Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbz2d.a (found version "1.0.8")
+-- Looking for BZ2_bzCompressInit
+-- Looking for BZ2_bzCompressInit - found
+-- Arrow version: 
+-- Found the Arrow shared library: 
+-- Found the Arrow import library: 
+-- Found the Arrow static library: /Users/anshc/vcpkg/installed/arm64-osx/lib/libarrow.a
+-- Found Jsoncpp: /Users/anshc/vcpkg/installed/arm64-osx/include
+-- jsoncpp version:1.9.6
+-- Found UUID: 
+-- Found Brotli: /Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libbrotlidec.a
+-- Looking for C++ include filesystem
+-- Looking for C++ include filesystem - found
+-- Performing Test CXX_FILESYSTEM_NO_LINK_NEEDED
+-- Performing Test CXX_FILESYSTEM_NO_LINK_NEEDED - Success
+-- Found Python: /Users/anshc/vcpkg/installed/arm64-osx/tools/python3/python3.11 (found suitable version "3.11.11", minimum required is "3.7") found components: Interpreter Development.Module Development.Embed
+-- Performing Test Iconv_IS_BUILT_IN
+-- Performing Test Iconv_IS_BUILT_IN - Failed
+-- Found Iconv: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/lib/libiconv.tbd
+-- Found Intl: /Users/anshc/vcpkg/installed/arm64-osx/debug/lib/libintl.a (found version "0.22.5")
+-- Performing Test HAS_FLTO_THIN
+-- Performing Test HAS_FLTO_THIN - Success
+-- Found pybind11: /Users/anshc/vcpkg/installed/arm64-osx/include (found version "2.13.6")
+-- Configuring done (5.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug

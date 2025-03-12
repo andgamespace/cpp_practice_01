@@ -1,0 +1,13 @@
+{
+    "server_settings": {
+        "listen_address": "0.0.0.0",
+        "port": 8848,
+        "ssl": false,
+        "thread_num": 4
+    },
+    "data_settings": {
+        "base_directory": "../src/stock_data/",
+        "supported_tickers": ["AAPL", "MSFT", "NVDA", "AMD"],
+        "refresh_interval": 300
+    }
+} 

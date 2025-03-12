@@ -55,6 +55,7 @@ int main() {
         filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(1).csv");
         filePaths.push_back(baseDir + "time-series-" + ticker + "-5min(2).csv");
 
+
         std::cout << "=============================" << std::endl;
         std::cout << "Processing ticker: " << ticker << std::endl;
         std::cout << "=============================" << std::endl;

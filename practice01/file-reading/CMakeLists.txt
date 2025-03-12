@@ -20,7 +20,7 @@ find_package(unofficial-vincentlaucsb-csv-parser CONFIG REQUIRED)  # CSV Parser
 find_package(drogon CONFIG REQUIRED)                               # Drogon HTTP framework
 find_package(pybind11 CONFIG REQUIRED)                             # Pybind11
 find_package(spdlog CONFIG REQUIRED)                               # spdlog logging library
-
+find_package(Taskflow CONFIG REQUIRED)
 # Set source files
 add_executable(file_reading src/main.cpp
         src/DataLoader.cpp
@@ -46,3 +46,6 @@ target_link_libraries(file_reading PRIVATE pybind11::module)
 
 # spdlog logging library
 target_link_libraries(file_reading PRIVATE spdlog::spdlog)
+
+# taskflow for concurrency
+target_link_libraries(file_reading PRIVATE Taskflow::Taskflow)

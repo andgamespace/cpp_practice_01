@@ -75,6 +75,10 @@ docs/latex/
 !*/src/
 !*/include/
 !*/CMakeLists.txt
+!*.ts
+!*.tsx
+!*.css
+!*.html
 !*.cpp
 !*.h
 !*.hpp
