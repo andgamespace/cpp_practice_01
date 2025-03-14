@@ -10,7 +10,8 @@
 #include <spdlog/spdlog.h>
 
 namespace fs = std::filesystem;
-int myInt = 90;
+
+
 // Helper: impute missing (NaN) values in a numeric column vector.
 void DataLoader::imputeMissing(std::vector<double>& data, int window) {
     for (size_t i = 0; i < data.size(); ++i) {

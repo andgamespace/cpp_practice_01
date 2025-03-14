@@ -1,6 +1,11 @@
 # ninja log v6
-12	1285	1741477077440508999	build.ninja	d20583f171b7c287
-1246	2019	1741476915871716946	file_reading	3af87e56faf35d47
-20	5094	1741035548334805235	CMakeFiles/file_reading.dir/src/FrontendController.cpp.o	3a8e802ea9fc4003
+12	1285	1741991079154011928	build.ninja	d20583f171b7c287
+3513	4274	1741913457187130436	file_reading	ccc056c4c05673b6
+33	3512	1741913453707087502	CMakeFiles/file_reading.dir/src/FrontendController.cpp.o	3a8e802ea9fc4003
+19	3018	1741910350010309511	CMakeFiles/file_reading.dir/src/MyWebSocketController.cpp.o	5da0e170af62e785
 20	2312	1741035548334651242	CMakeFiles/file_reading.dir/src/DataLoader.cpp.o	b5405a72ce637a76
-30	1245	1741476914656005038	CMakeFiles/file_reading.dir/src/main.cpp.o	d298251b74d77ad4
+63	1871	1741910163531446565	CMakeFiles/file_reading.dir/src/main.cpp.o	d298251b74d77ad4
+58	2573	1741992217635754357	CMakeFiles/file_reading.dir/src/BacktestEngine.cpp.o	9d63e53a6fe08886
+2573	3676	1741992220151191608	file_reading	d940e109c93ce73d
+39	1986	1741992250554324731	CMakeFiles/file_reading.dir/src/BacktestEngine.cpp.o	9d63e53a6fe08886
+1987	2969	1741992252501453901	file_reading	d940e109c93ce73d

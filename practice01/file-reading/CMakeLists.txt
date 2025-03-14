@@ -26,7 +26,12 @@ add_executable(file_reading src/main.cpp
         src/DataLoader.cpp
         src/DataLoader.h
         src/FrontendController.cpp
-        src/FrontendController.h)
+        src/FrontendController.h
+        src/MyWebSocketController.cpp
+        src/MyWebSocketController.h
+        src/BacktestEngine.cpp
+        src/BacktestEngine.h
+)
 
 # Apache Arrow library: Use the static or shared version of the library
 if (DEFINED ARROW_BUILD_STATIC AND ARROW_BUILD_STATIC)

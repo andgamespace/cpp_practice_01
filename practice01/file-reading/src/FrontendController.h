@@ -2,101 +2,81 @@
 #define FRONTENDCONTROLLER_H
 #pragma once
 
-#include <drogon/HttpController.h>
-#include "DataLoader.h"
+#include <drogon/HttpController.h>  // Required for HttpController, ADD_METHOD_TO, etc.
 #include <json/json.h>
-
-using namespace drogon;
+#include "DataLoader.h"
 
 /**
  * @brief FrontendController is responsible for sending time series and portfolio metrics data
- *        to the React frontend. It abstracts functionality for live metrics, time series,
- *        win/loss ratio, profit and loss, and deep learning metrics.
+ *        to the React (or any) frontend. It abstracts functionality for:
+ *        - Time series data
+ *        - Live portfolio metrics
+ *        - Win/loss ratio
+ *        - Profit and loss
+ *        - Supervised/Deep learning metrics
+ *        - Reinforcement learning metrics
+ *        - Combined performance overview (win/loss, PnL direction, average win/loss, etc.)
  */
 class FrontendController : public drogon::HttpController<FrontendController>
 {
 public:
     FrontendController();
 
-    /**
-     * @brief Get time series data for a specific ticker.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     * @param ticker The ticker symbol for which time series data is requested.
-     */
-    void getTimeSeriesData(const HttpRequestPtr &req,
-                           std::function<void (const HttpResponsePtr &)> &&callback,
+    // GET /time-series/{ticker}
+    void getTimeSeriesData(const drogon::HttpRequestPtr &req,
+                           std::function<void(const drogon::HttpResponsePtr &)> &&callback,
                            const std::string &ticker);
 
-    /**
-     * @brief Get live portfolio metrics.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     */
-    void getLivePortfolioMetrics(const HttpRequestPtr &req,
-                                 std::function<void (const HttpResponsePtr &)> &&callback);
+    // GET /portfolio/live
+    void getLivePortfolioMetrics(const drogon::HttpRequestPtr &req,
+                                 std::function<void(const drogon::HttpResponsePtr &)> &&callback);
 
-    /**
-     * @brief Get the win/loss ratio.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     */
-    void getWinLossRatio(const HttpRequestPtr &req,
-                         std::function<void (const HttpResponsePtr &)> &&callback);
+    // GET /portfolio/winloss
+    void getWinLossRatio(const drogon::HttpRequestPtr &req,
+                         std::function<void(const drogon::HttpResponsePtr &)> &&callback);
 
-    /**
-     * @brief Get the profit and loss metrics.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     */
-    void getProfitLoss(const HttpRequestPtr &req,
-                       std::function<void (const HttpResponsePtr &)> &&callback);
+    // GET /portfolio/pnl
+    void getProfitLoss(const drogon::HttpRequestPtr &req,
+                       std::function<void(const drogon::HttpResponsePtr &)> &&callback);
 
-    /**
-     * @brief Get supervised deep learning metrics.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     */
-    void getSupervisedLearningMetrics(const HttpRequestPtr &req,
-                                      std::function<void (const HttpResponsePtr &)> &&callback);
+    // GET /portfolio/supervised
+    void getSupervisedLearningMetrics(const drogon::HttpRequestPtr &req,
+                                      std::function<void(const drogon::HttpResponsePtr &)> &&callback);
 
-    /**
-     * @brief Get reinforcement learning metrics.
-     * @param req The incoming HTTP request.
-     * @param callback Function to send the HTTP response.
-     */
-    void getReinforcementLearningMetrics(const HttpRequestPtr &req,
-                                         std::function<void (const HttpResponsePtr &)> &&callback);
+    // GET /portfolio/rl
+    void getReinforcementLearningMetrics(const drogon::HttpRequestPtr &req,
+                                         std::function<void(const drogon::HttpResponsePtr &)> &&callback);
+
+    // GET /portfolio/performance
+    void getPerformanceOverview(const drogon::HttpRequestPtr &req,
+                                std::function<void(const drogon::HttpResponsePtr &)> &&callback);
 
     METHOD_LIST_BEGIN
-        // GET /time-series/{ticker} returns time series data for the ticker.
-        ADD_METHOD_TO(FrontendController::getTimeSeriesData, "/time-series/{1}", Get);
-        // GET /portfolio/live returns live portfolio metrics.
-        ADD_METHOD_TO(FrontendController::getLivePortfolioMetrics, "/portfolio/live", Get);
-        // GET /portfolio/winloss returns the win/loss ratio.
-        ADD_METHOD_TO(FrontendController::getWinLossRatio, "/portfolio/winloss", Get);
-        // GET /portfolio/pnl returns profit and loss data.
-        ADD_METHOD_TO(FrontendController::getProfitLoss, "/portfolio/pnl", Get);
-        // GET /portfolio/supervised returns supervised learning metrics.
-        ADD_METHOD_TO(FrontendController::getSupervisedLearningMetrics, "/portfolio/supervised", Get);
-        // GET /portfolio/rl returns reinforcement learning metrics.
-        ADD_METHOD_TO(FrontendController::getReinforcementLearningMetrics, "/portfolio/rl", Get);
+        // Explicitly use drogon::Get instead of just Get:
+        ADD_METHOD_TO(FrontendController::getTimeSeriesData, "/time-series/{1}", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getLivePortfolioMetrics, "/portfolio/live", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getWinLossRatio,         "/portfolio/winloss", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getProfitLoss,           "/portfolio/pnl", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getSupervisedLearningMetrics, "/portfolio/supervised", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getReinforcementLearningMetrics, "/portfolio/rl", drogon::Get);
+        ADD_METHOD_TO(FrontendController::getPerformanceOverview,  "/portfolio/performance", drogon::Get);
     METHOD_LIST_END
 
 private:
-    // Instance of DataLoader used to load time series CSV data.
+    // DataLoader instance to load time series CSV data
     DataLoader timeSeriesLoader_;
-
-    // Debug flag.
     bool debug_ = true;
 
-    // Helper functions that provide (mock) portfolio data.
+    // Convert an Apache Arrow Table to JSON
+    Json::Value arrowTableToJson(const std::shared_ptr<arrow::Table> &table);
+
+    // Mock or real data retrieval for portfolio stats
     Json::Value getMockPortfolioMetrics();
     Json::Value getMockWinLossRatio();
     Json::Value getMockProfitLoss();
 
-    // Helper: Converts an Apache Arrow Table into a JSON array.
-    Json::Value arrowTableToJson(const std::shared_ptr<arrow::Table> &table);
+    // Combined mock aggregator
+    Json::Value getMockPerformanceOverview();
 };
 
 #endif // FRONTENDCONTROLLER_H
