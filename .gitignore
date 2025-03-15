@@ -46,7 +46,7 @@ vcpkg_installed/
 *.ninja
 *.log
 *.DS_Store
-
+*cmake-build-debug
 # Object files and libraries
 *.o
 *.obj
