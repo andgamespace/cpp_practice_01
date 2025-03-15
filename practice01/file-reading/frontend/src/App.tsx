@@ -1,5 +1,3 @@
-/* App.tsx */
-
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {
@@ -27,11 +25,9 @@ function App() {
     const [portfolio, setPortfolio] = useState<any>({})
     const [wsMessages, setWsMessages] = useState<string[]>([])
 
-    // Fetch data from Drogon endpoints on mount
+    // Fetch REST endpoints on mount.
     useEffect(() => {
-        // Example: fetch time series data for AAPL
-        axios
-            .get('http://localhost:8080/time-series/AAPL')
+        axios.get('http://localhost:8080/time-series/AAPL')
             .then((res) => {
                 if (res.data?.data) {
                     setTimeSeries(res.data.data)
@@ -39,9 +35,7 @@ function App() {
             })
             .catch(console.error)
 
-        // Example: fetch live portfolio metrics
-        axios
-            .get('http://localhost:8080/portfolio/live')
+        axios.get('http://localhost:8080/portfolio/live')
             .then((res) => {
                 if (res.data?.portfolio) {
                     setPortfolio(res.data.portfolio)
@@ -50,19 +44,16 @@ function App() {
             .catch(console.error)
     }, [])
 
-    // Open a WebSocket to ws://localhost:8080/ws
+    // Establish WebSocket connection.
     useEffect(() => {
         const ws = new WebSocket('ws://localhost:8080/ws')
 
         ws.onopen = () => {
             console.log('[WebSocket] Connected')
-            // Optionally, send a message to server
-            // ws.send(JSON.stringify({ type: 'hello', payload: 'Hi from React!' }))
         }
 
         ws.onmessage = (evt) => {
             console.log('[WebSocket] Message:', evt.data)
-            // Just store raw messages in an array
             setWsMessages((prev) => [...prev, evt.data])
         }
 
@@ -70,7 +61,6 @@ function App() {
             console.log('[WebSocket] Disconnected')
         }
 
-        // Cleanup when unmounting
         return () => {
             ws.close()
         }
@@ -79,8 +69,6 @@ function App() {
     return (
         <div className="App">
             <h1>My Trading Dashboard</h1>
-
-            {/* Time Series Chart */}
             <div style={{ marginBottom: '2rem' }}>
                 <h2>Time Series (AAPL)</h2>
                 <div style={{ width: '90%', height: 400, margin: '0 auto' }}>
@@ -96,8 +84,6 @@ function App() {
                     </ResponsiveContainer>
                 </div>
             </div>
-
-            {/* Portfolio Metrics */}
             <div style={{ marginBottom: '2rem' }}>
                 <h2>Portfolio Metrics</h2>
                 <p>Timestamp: {portfolio.timestamp}</p>
@@ -106,8 +92,6 @@ function App() {
                 <p>Open Positions: {portfolio.openPositions}</p>
                 <p>Profit/Loss: {portfolio.profitLoss}</p>
             </div>
-
-            {/* WebSocket Messages */}
             <div style={{ marginBottom: '2rem' }}>
                 <h2>WebSocket Messages</h2>
                 <ul>

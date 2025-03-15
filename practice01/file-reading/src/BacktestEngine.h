@@ -7,70 +7,97 @@
 #include <optional>
 #include <memory>
 #include <mutex>
+#include <functional>
 #include <arrow/api.h>
 #include <spdlog/spdlog.h>
 
+/**
+ * @brief BacktestEngine manages tick-by-tick simulation of trading strategies.
+ */
 class BacktestEngine {
 public:
     // Transaction action type.
     enum class Action { Buy, Sell };
 
-    // Struct to store a single transaction.
+    // A single trade transaction.
     struct Transaction {
-        Action action;          // Buy or Sell (only one per transaction)
+        Action action;          // BUY or SELL
         std::string ticker;     // Ticker symbol
         int quantity;           // Number of shares
-        double price;           // Price per share at the time of transaction
-        std::string datetime;   // Timestamp from the Arrow data row
+        double price;           // Price per share
+        std::string datetime;   // Timestamp from the Arrow row
     };
 
-    // Abstract base class for strategies.
-    // The user can derive from this class to implement custom tick-by-tick trading logic.
+    // Abstract base for trading strategies.
     class Strategy {
     public:
         virtual ~Strategy() = default;
-        // Called on every tick for a given ticker.
-        // currentIndex refers to the row index within the Arrow table.
-        // currentHolding is the current number of shares held.
-        // If the strategy wants to trigger a transaction, it returns a Transaction.
-        // Otherwise, it returns std::nullopt.
-        virtual std::optional<Transaction> onTick(const std::string& ticker,
-                                                    const std::shared_ptr<arrow::Table>& table,
-                                                    size_t currentIndex,
-                                                    int currentHolding) = 0;
+        // Called at each tick. Return a Transaction if an action should occur.
+        virtual std::optional<Transaction> onTick(const std::string &ticker,
+                                                  const std::shared_ptr<arrow::Table> &table,
+                                                  size_t currentIndex,
+                                                  int currentHolding) = 0;
     };
 
     BacktestEngine();
     ~BacktestEngine() = default;
 
-    // Adds ticker data as loaded by the DataLoader to the engine.
-    void addTickerData(const std::string& ticker, const std::shared_ptr<arrow::Table>& table);
+    // Overloaded assignment operator to set a custom starting cash balance.
+    BacktestEngine &operator=(double new_balance);
 
-    // Registers a strategy for a particular ticker.
-    void registerStrategy(const std::string& ticker, std::unique_ptr<Strategy> strategy);
+    // Add ticker data for one ticker.
+    void addTickerData(const std::string &ticker, const std::shared_ptr<arrow::Table> &table);
 
-    // Runs the backtesting simulation with concurrency.
+    // Bulk-set ticker data from a map.
+    void setTickerData(const std::map<std::string, std::shared_ptr<arrow::Table>> &data);
+
+    // Register a strategy for a given ticker.
+    void registerStrategy(const std::string &ticker, std::unique_ptr<Strategy> strategy);
+
+    // Set a callback to broadcast portfolio metrics (e.g. via WebSocket).
+    void setBroadcastCallback(std::function<void(const std::string &)> callback);
+
+    // Runs the backtest concurrently using Taskflow.
     void runBacktest();
 
-    // Returns a summary string with portfolio holdings and transaction count.
+    // Returns portfolio metrics as a summary string.
     std::string getPortfolioMetrics() const;
 
-private:
-    // Mapping from ticker symbol to its Arrow table data.
-    std::map<std::string, std::shared_ptr<arrow::Table>> tickerData_;
-    // Current row index for each ticker.
-    std::map<std::string, size_t> tickerIndices_;
-    // Registered strategy per ticker.
-    std::map<std::string, std::unique_ptr<Strategy>> strategies_;
-    // Current holdings: ticker -> number of shares held.
-    std::map<std::string, int> holdings_;
-    // List of transactions executed during the backtest.
-    std::vector<Transaction> transactions_;
-    // Mutex to protect shared updates in concurrent tasks.
-    std::mutex mtx_;
+    // Optional getter for cash balance (if a strategy wants to see it).
+    double getCashBalance() const {
+        std::lock_guard<std::mutex> lock(mtx_);
+        return cash_balance_;
+    }
 
-    // Helper: logs a transaction via spdlog.
-    void logTransaction(const Transaction& tx);
+private:
+    // Ticker data and current tick index.
+    std::map<std::string, std::shared_ptr<arrow::Table>> tickerData_;
+    std::map<std::string, size_t> tickerIndices_;
+
+    // Strategy per ticker.
+    std::map<std::string, std::unique_ptr<Strategy>> strategies_;
+
+    // Holdings and transactions.
+    std::map<std::string, int> holdings_;
+    std::vector<Transaction> transactions_;
+
+    // Mutex for shared state.
+    mutable std::mutex mtx_;
+
+    // Financial metrics.
+    double initial_balance_;  // default: $100,000
+    double cash_balance_;
+    int wins_;
+    int losses_;
+
+    // For computing wins/losses, store buy prices by ticker.
+    std::map<std::string, std::vector<double>> buy_prices_;
+
+    // Callback for broadcasting metrics.
+    std::function<void(const std::string &)> broadcast_callback_;
+
+    // Helper: logs a transaction to spdlog.
+    void logTransaction(const Transaction &tx);
 };
 
 #endif // BACKTESTENGINE_H

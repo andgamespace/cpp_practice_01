@@ -1,12 +1,45 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/anshc/repos/cpp_practice_01/practice01/file-reading -B /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug
+-- Found AWS SDK for C++, Version: 1.11.510, Install Root:/opt/homebrew, Platform Prefix:, Platform Dependent Libraries: pthread;curl
+-- Components specified for AWSSDK: config;s3;transfer;identity-management;sts, application will be depending on libs: aws-cpp-sdk-config;aws-cpp-sdk-transfer;aws-cpp-sdk-identity-management;aws-cpp-sdk-cognito-identity;aws-cpp-sdk-sts;aws-cpp-sdk-s3;aws-cpp-sdk-core
+-- Try finding aws-cpp-sdk-core
+-- Found aws-cpp-sdk-core
+-- Try finding aws-cpp-sdk-s3
+-- Found aws-cpp-sdk-s3
+-- Try finding aws-cpp-sdk-sts
+-- Found aws-cpp-sdk-sts
+-- Try finding aws-cpp-sdk-cognito-identity
+-- Found aws-cpp-sdk-cognito-identity
+-- Try finding aws-cpp-sdk-identity-management
+-- Found aws-cpp-sdk-identity-management
+-- Try finding aws-cpp-sdk-transfer
+-- Found aws-cpp-sdk-transfer
+-- Try finding aws-cpp-sdk-config
+-- Found aws-cpp-sdk-config
 -- Arrow version: 
--- Found the Arrow shared library: 
--- Found the Arrow import library: 
--- Found the Arrow static library: /Users/anshc/vcpkg/installed/arm64-osx/lib/libarrow.a
+-- Found the Arrow shared library: /opt/homebrew/lib/libarrow.1900.0.0.dylib
+-- Found the Arrow import library: ARROW_IMPORT_LIB-NOTFOUND
+-- Found the Arrow static library: /opt/homebrew/lib/libarrow.a
 -- jsoncpp version:1.9.6
 -- Found UUID: 
--- Found pybind11: /Users/anshc/vcpkg/installed/arm64-osx/include (found version "2.13.6")
+-- Found pybind11: /opt/homebrew/include (found version "2.13.6")
 -- Taskflow found. Headers: /Users/anshc/vcpkg/installed/arm64-osx/include/
--- Configuring done (3.0s)
+-- Configuring done (1.7s)
+CMake Error at /opt/homebrew/lib/cmake/Arrow/ArrowTargets.cmake:69 (set_target_properties):
+  The link interface of target "Arrow::arrow_static" contains:
+
+    protobuf::libprotobuf
+
+  but the target was not found.  Possible reasons include:
+
+    * There is a typo in the target name.
+    * A find_package call is missing for an IMPORTED target.
+    * An ALIAS target is missing.
+
+Call Stack (most recent call first):
+  /opt/homebrew/lib/cmake/Arrow/arrowConfig.cmake:125 (include)
+  /Users/anshc/vcpkg/scripts/buildsystems/vcpkg.cmake:859 (_find_package)
+  CMakeLists.txt:18 (find_package)
+
+
 -- Generating done (0.0s)
--- Build files have been written to: /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug
+CMake Generate step failed.  Build files cannot be regenerated correctly.
