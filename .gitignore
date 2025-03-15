@@ -7,7 +7,11 @@ out/
 */[Bb]uild/
 */out/
 */[Oo]ut/
-
+*/cmake-build-debug/
+*/node_modules/
+*/include/
+*/vcpkg/
+*/vcpkg_installed/
 # CMake specific
 CMakeCache.txt
 CMakeFiles/

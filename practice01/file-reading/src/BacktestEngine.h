@@ -6,6 +6,7 @@
 #include <map>
 #include <optional>
 #include <memory>
+#include <mutex>
 #include <arrow/api.h>
 #include <spdlog/spdlog.h>
 
@@ -48,7 +49,7 @@ public:
     // Registers a strategy for a particular ticker.
     void registerStrategy(const std::string& ticker, std::unique_ptr<Strategy> strategy);
 
-    // Runs the backtesting simulation in a single-threaded loop.
+    // Runs the backtesting simulation with concurrency.
     void runBacktest();
 
     // Returns a summary string with portfolio holdings and transaction count.
@@ -65,6 +66,8 @@ private:
     std::map<std::string, int> holdings_;
     // List of transactions executed during the backtest.
     std::vector<Transaction> transactions_;
+    // Mutex to protect shared updates in concurrent tasks.
+    std::mutex mtx_;
 
     // Helper: logs a transaction via spdlog.
     void logTransaction(const Transaction& tx);

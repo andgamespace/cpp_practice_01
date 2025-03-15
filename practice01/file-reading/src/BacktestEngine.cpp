@@ -2,6 +2,7 @@
 #include <sstream>
 #include <chrono>
 #include <thread>
+#include <taskflow/taskflow.hpp>  // Use the Taskflow header
 
 BacktestEngine::BacktestEngine()
     : tickerData_{}, tickerIndices_{}, strategies_{}, holdings_{}, transactions_{} {
@@ -30,52 +31,57 @@ void BacktestEngine::logTransaction(const Transaction& tx) {
 }
 
 void BacktestEngine::runBacktest() {
-    spdlog::info("Starting backtest simulation");
+    spdlog::info("Starting concurrent backtest simulation");
 
-    // Run until all tickers have been fully processed.
-    bool dataRemaining = true;
+    // Create a Taskflow executor and task graph using the tf namespace.
+    tf::Executor executor;
     size_t iteration = 0;
     constexpr size_t updateFrequency = 16; // Update portfolio metrics every 16 iterations
 
+    bool dataRemaining = true;
     while (dataRemaining) {
         dataRemaining = false;
-        // Iterate over each ticker.
+        tf::Taskflow tf;
+
+        // For each ticker, schedule a concurrent task if there is data left.
         for (auto& [ticker, table] : tickerData_) {
             size_t& index = tickerIndices_[ticker];
             if (index < table->num_rows()) {
                 dataRemaining = true;
-                spdlog::debug("Processing {} at index {}", ticker, index);
-
-                // If a strategy has been registered for this ticker, invoke its onTick method.
-                if (strategies_.contains(ticker)) {
-                    auto& strategy = strategies_[ticker];
-                    auto txOpt = strategy->onTick(ticker, table, index, holdings_[ticker]);
-                    if (txOpt.has_value()) {
-                        const auto& tx = txOpt.value();
-                        transactions_.push_back(tx);
-                        logTransaction(tx);
-                        // Update holdings based on the transaction action.
-                        if (tx.action == Action::Buy) {
-                            holdings_[ticker] += tx.quantity;
-                        } else if (tx.action == Action::Sell) {
-                            holdings_[ticker] -= tx.quantity;
+                tf.emplace([this, ticker, table, &index]() {
+                    // Process a single tick for this ticker.
+                    if (strategies_.contains(ticker)) {
+                        auto& strategy = strategies_[ticker];
+                        // Get the current holding (reading without lock is acceptable if updates are protected)
+                        int currentHolding = holdings_[ticker];
+                        auto txOpt = strategy->onTick(ticker, table, index, currentHolding);
+                        if (txOpt.has_value()) {
+                            // Protect shared updates with a mutex.
+                            std::lock_guard<std::mutex> lock(this->mtx_);
+                            const auto& tx = txOpt.value();
+                            transactions_.push_back(tx);
+                            logTransaction(tx);
+                            if (tx.action == Action::Buy) {
+                                holdings_[ticker] += tx.quantity;
+                            } else if (tx.action == Action::Sell) {
+                                holdings_[ticker] -= tx.quantity;
+                            }
                         }
                     }
-                }
-                // Move to the next data row for this ticker.
-                index++;
+                    // Move to the next row for this ticker.
+                    index++;
+                });
             }
         }
+        // Execute all tasks concurrently.
+        executor.run(tf).wait();
         iteration++;
 
-        // Periodically log portfolio metrics (and later, these metrics can be sent via a websocket).
         if (iteration % updateFrequency == 0) {
             spdlog::info("Iteration {}: Portfolio Metrics: {}", iteration, getPortfolioMetrics());
-            // Simulate a processing delay (if needed).
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
     }
-
     spdlog::info("Backtest simulation completed after {} iterations", iteration);
 }
 
@@ -91,7 +97,7 @@ std::string BacktestEngine::getPortfolioMetrics() const {
 
 #ifdef BACKTEST_ENGINE_TEST
 // -------------------------
-// Testing the BacktestEngine
+// Testing the BacktestEngine with concurrency
 // -------------------------
 
 #include "DataLoader.h"
@@ -118,7 +124,7 @@ public:
 
         BacktestEngine::Transaction tx;
         tx.ticker = ticker;
-        // For the datetime, use the value from the first column.
+        // Use the datetime from the first column.
         auto datetimeArray = std::static_pointer_cast<arrow::StringArray>(table->column(0)->chunk(0));
         tx.datetime = datetimeArray->GetString(currentIndex);
         tx.price = price;
@@ -145,7 +151,7 @@ private:
 };
 
 int main() {
-    spdlog::info("Testing BacktestEngine");
+    spdlog::info("Testing concurrent BacktestEngine");
 
     // Create an instance of the DataLoader.
     DataLoader loader;
@@ -178,7 +184,6 @@ int main() {
     engine.runBacktest();
 
     std::cout << "Final Portfolio Metrics: " << engine.getPortfolioMetrics() << std::endl;
-
     return 0;
 }
 #endif // BACKTEST_ENGINE_TEST
