@@ -63,6 +63,8 @@ vcpkg_installed/
 *.d
 */build/
 */build/**
+*.cache
+*clangd
 # Ignore generated documentation (if you are using Doxygen, etc)
 docs/html/
 docs/latex/
