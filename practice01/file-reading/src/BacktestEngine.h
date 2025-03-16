@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <deque>         // Use deque for efficient front removal
 #include <map>
 #include <optional>
 #include <memory>
@@ -34,9 +35,9 @@ public:
         virtual ~Strategy() = default;
         // Called at each tick. Return a Transaction if an action should occur.
         virtual std::optional<Transaction> onTick(const std::string &ticker,
-                                                  const std::shared_ptr<arrow::Table> &table,
-                                                  size_t currentIndex,
-                                                  int currentHolding) = 0;
+                                                    const std::shared_ptr<arrow::Table> &table,
+                                                    size_t currentIndex,
+                                                    int currentHolding) = 0;
     };
 
     BacktestEngine();
@@ -63,11 +64,30 @@ public:
     // Returns portfolio metrics as a summary string.
     std::string getPortfolioMetrics() const;
 
-    // Optional getter for cash balance (if a strategy wants to see it).
+    // Optional getter for cash balance.
     double getCashBalance() const {
         std::lock_guard<std::mutex> lock(mtx_);
         return cash_balance_;
     }
+
+    // === New RL interface ===
+
+    // Structure for a single step result.
+    struct StepResult {
+        std::map<std::string, double> observations; // e.g. current close prices per ticker
+        double reward;      // For example, relative change in cash balance (or risk-adjusted)
+        bool done;          // True if no more data is available for any ticker
+    };
+
+    // Process one tick (bar) for each ticker and return observations/reward.
+    StepResult step();
+
+    // Process one tick using external actions from DRL agents.
+    // externalActions: key = ticker, value = number of shares to trade (positive: buy, negative: sell).
+    StepResult step(const std::map<std::string, double> &externalActions);
+
+    // Reset the simulation to the beginning (for a new RL episode).
+    void reset();
 
 private:
     // Ticker data and current tick index.
@@ -91,7 +111,7 @@ private:
     int losses_;
 
     // For computing wins/losses, store buy prices by ticker.
-    std::map<std::string, std::vector<double>> buy_prices_;
+    std::map<std::string, std::deque<double>> buy_prices_;
 
     // Callback for broadcasting metrics.
     std::function<void(const std::string &)> broadcast_callback_;

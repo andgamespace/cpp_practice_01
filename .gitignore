@@ -47,6 +47,7 @@ vcpkg_installed/
 *.log
 *.DS_Store
 *cmake-build-debug
+*cmake-build-debug/**
 # Object files and libraries
 *.o
 *.obj
@@ -60,7 +61,8 @@ vcpkg_installed/
 
 # C++ specific
 *.d
-
+*/build/
+*/build/**
 # Ignore generated documentation (if you are using Doxygen, etc)
 docs/html/
 docs/latex/
