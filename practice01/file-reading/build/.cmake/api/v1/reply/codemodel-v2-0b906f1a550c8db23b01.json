@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-8dc5b67ff756c1e78804.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "file_reading",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "file_reading::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-file_reading-Debug-60d9e2699e016b995947.json",
+					"name" : "file_reading",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "my_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-my_module-Debug-349b3efa23b720b8fa96.json",
+					"name" : "my_module",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build",
+		"source" : "/Users/anshc/repos/cpp_practice_01/practice01/file-reading"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

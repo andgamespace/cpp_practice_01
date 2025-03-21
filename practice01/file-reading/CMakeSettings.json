@@ -1,0 +1,20 @@
+{
+  "configurations": [
+    {
+      "name": "Ninja-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${workspaceFolder}/build",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "variables": []
+    },
+    {
+      "name": "Ninja-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${workspaceFolder}/build-debug",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "variables": []
+    }
+  ]
+}

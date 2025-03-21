@@ -1,0 +1,51 @@
++---------------------+     +---------------------+     +---------------------+
+|                     |     |                     |     |                     |
+|   Python Interface  |     |    C++ Backend      |     |   React Frontend    |
+|                     |     |                     |     |                     |
++----------+----------+     +----------+----------+     +----------+----------+
+           |                           |                           |
+           |                           |                           |
+           v                           v                           v
++----------+----------+     +----------+----------+     +----------+----------+
+|                     |     |                     |     |                     |
+|   Gymnasium API     |     |   DataLoader        |     |   WebSocket Client  |
+|                     |     |                     |     |                     |
++----------+----------+     +----------+----------+     +----------+----------+
+           |                           |                           |
+           |                           |                           |
+           v                           v                           v
++----------+----------+     +----------+----------+     +----------+----------+
+|                     |     |                     |     |                     |
+|   PyTorch Models    |     |   BacktestEngine    |     |   Chart Components  |
+|                     |     |                     |     |                     |
++----------+----------+     +----------+----------+     +----------+----------+
+           |                           |                           |
+           |                           |                           |
+           v                           v                           v
++----------+----------+     +----------+----------+     +----------+----------+
+|                     |     |                     |     |                     |
+|   DRL Algorithms    |     |   TechnicalIndicators|    |   Dashboard UI      |
+|                     |     |                     |     |                     |
++---------------------+     +---------------------+     +---------------------+
+
+                    +---------------------+
+                    |                     |
+                    |   WebSocket Server  |
+                    |                     |
+                    +----------+----------+
+                               |
+                               |
+                               v
+                    +----------+----------+
+                    |                     |
+                    |   JSON Broadcast    |
+                    |                     |
+                    +---------------------+
+
+Data Flow:
+1. Python Interface calls C++ Backend through PyBind11
+2. C++ Backend processes data and runs backtests
+3. C++ Backend sends updates to WebSocket Server
+4. WebSocket Server broadcasts updates to React Frontend
+5. React Frontend displays real-time updates
+6. PyTorch Models interact with C++ Backend through Python Interface

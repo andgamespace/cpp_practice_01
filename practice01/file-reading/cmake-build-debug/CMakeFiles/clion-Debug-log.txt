@@ -23,6 +23,8 @@
 -- Found UUID: 
 -- Found pybind11: /opt/homebrew/include (found version "2.13.6")
 -- Taskflow found. Headers: /Users/anshc/vcpkg/installed/arm64-osx/include/
--- Configuring done (2.4s)
+-- nlohmann_json not found, using bundled version
+-- PyTorch support disabled
+-- Configuring done (3.4s)
 -- Generating done (0.1s)
 -- Build files have been written to: /Users/anshc/repos/cpp_practice_01/practice01/file-reading/cmake-build-debug

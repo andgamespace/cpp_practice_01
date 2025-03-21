@@ -1,0 +1,13 @@
+# ninja log v6
+13787	18751	1742324803073464564	CMakeFiles/my_module.dir/src/MyWebSocketController.cpp.o	232bc7dbb0ab8c48
+31	9114	1742328574587962473	CMakeFiles/file_reading.dir/src/FrontendController.cpp.o	334b344528778f9
+2	15416	1742324789289344944	CMakeFiles/file_reading.dir/src/MyWebSocketController.cpp.o	47f5d0bfa1a919c8
+3	13787	1742324789290228028	CMakeFiles/my_module.dir/src/BacktestEngine.cpp.o	548231d07e89a18f
+31	8358	1742328574588205378	CMakeFiles/my_module.dir/src/DataLoader.cpp.o	255beef66f641367
+2	13780	1742324789289695803	CMakeFiles/file_reading.dir/src/BacktestEngine.cpp.o	9ac69d844ba66da7
+4348	4685	1742328985953423516	file_reading	1e6c24d63e20958a
+9	4348	1742328981614676295	CMakeFiles/file_reading.dir/src/main.cpp.o	49104cddef39e1ad
+31	8357	1742328574587832855	CMakeFiles/file_reading.dir/src/DataLoader.cpp.o	25d92357dc5a99c5
+13842	13984	1742328588398160049	my_module.so	1fa781cc0dc84e7c
+31	9055	1742328574588644897	CMakeFiles/my_module.dir/src/FrontendController.cpp.o	bd6c3a18f71baaf6
+31	13841	1742328574588084092	CMakeFiles/my_module.dir/src/PyBindings.cpp.o	da91de869fe06618

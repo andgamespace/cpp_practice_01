@@ -1,3 +1,8 @@
 /Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/file_reading.dir
+/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/my_module.dir
 /Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/edit_cache.dir
 /Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/rebuild_cache.dir
+/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/list_install_components.dir
+/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/install.dir
+/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/install/local.dir
+/Users/anshc/repos/cpp_practice_01/practice01/file-reading/build/CMakeFiles/install/strip.dir
